@@ -1,11 +1,10 @@
 version: "3"
-
 services:
   chatgpt_web:
     container_name: chatgpt_web
     restart: always
     depends_on:
-      - mocked_api
+      - python_api
     env_file:
       - .env
     ports:
@@ -15,12 +14,18 @@ services:
     build:
       context: "."
       dockerfile: Dockerfile
-
-  mocked_api:
-    container_name: mocked_api
-    build:
-        context: "."
-        dockerfile: mocked_api/Dockerfile-mockapi
+      
+  python_api:
+    container_name: python_api
     restart: always
     ports:
-      - 5174:5174
+      - 5175:5175
+      - 4444:4444  # Map the pdb port
+    volumes:
+      - ./python_api:/app/python_api
+    build:
+      context: "."
+      dockerfile: python_api/Dockerfile-pythonapi
+    environment:
+      - OPENAI_API_KEY
+      - DEBUG=1  # Enable debug mode
