@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Container>
+  <Beta>False</Beta>
+  <Category>Other:</Category>
+  <Date>2023-07-07</Date>
+  <Changes>
+
+  </Changes>
+  <Support></Support>
+  <Name>ChatGPT Web-PythonApi</Name>
+  <Description>
+    Proxy API for chatGPT-web
+  </Description>
+  <Registry>http://memoryalpha:5000/python_api/</Registry>
+  <GitHub>https://github.com/trekimann/chatgpt-web/</GitHub>
+  <Repository>localhost:5000/python_api</Repository>
+  <BindTime>true</BindTime>
+  <Privileged>false</Privileged>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>5175</HostPort>
+        <ContainerPort>5175</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <WebUI>http://[IP]:[PORT:5175]</WebUI>
+  <Banner>http://i.imgur.com/zXpacAF.png</Banner>
+  <Icon>http://i.imgur.com/zXpacAF.png</Icon>
+</Container>

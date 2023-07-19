@@ -4,7 +4,7 @@
         "editor.defaultFormatter": "dbaeumer.vscode-eslint"
     },
     "[svelte]": {
-        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+        "editor.defaultFormatter": "svelte.svelte-vscode"
     },
     "[javascript]": {
         "editor.defaultFormatter": "dbaeumer.vscode-eslint"
