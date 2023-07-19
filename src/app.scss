@@ -537,6 +537,12 @@ aside.menu.main-menu .menu-expanse {
   min-width: 60px;
   min-height: 1.3em;
 }
+.button-pack {
+  display: block;
+  position: sticky;
+  top: calc(var(--sectionPaddingTop) + 10px);
+  padding-bottom: 0.1px;
+}
 .button-pack .button {
   display: block;
   margin: 4px;
@@ -597,23 +603,27 @@ aside.menu.main-menu .menu-expanse {
   width: var(--chatToolDrawerSize);
   visibility: visible;
   max-height: 300%;
+  overflow: unset;
 }
 .user-message:hover .tool-drawer,
 .user-message.editing .tool-drawer {
   width: var(--chatToolDrawerSize);
   visibility: visible;
   max-height: 300%;
+  overflow: unset;
 }
 
 .assistant-message:hover .tool-drawer-mask,
 .assistant-message.editing .tool-drawer {
   width: var(--chatToolDrawerSize);
   visibility: visible;
+  overflow: unset;
 }
 .user-message:hover .tool-drawer-mask,
 .user-message.editing .tool-drawer {
   width: var(--chatToolDrawerSize);
   visibility: visible;
+  overflow: unset;
 }
 .assistant-message:hover, .assistant-message.editing {
   border-top-right-radius: 0px !important;
@@ -632,13 +642,15 @@ aside.menu.main-menu .menu-expanse {
   }
 }
 
-.message.streaming .message-display p:last-of-type::after {
+.message.streaming .message-display > p:last-child::after,
+.message.streaming .message-display > .code-block:last-child > pre code:last-of-type::after {
   position: relative;
   content: '❚';
   animation: cursor-blink 1s steps(2) infinite;
 }
 
-.message:last-of-type.incomplete .message-display p:last-of-type::after {
+.message:last-of-type.incomplete .message-display > p:last-child::after,
+.message:last-of-type.incomplete .message-display > .code-block:last-child > pre code:last-of-type::after {
   position: relative;
   content: '...';
   margin-left: 4px;
