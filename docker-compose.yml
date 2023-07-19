@@ -11,9 +11,12 @@ services:
       - 5173:5173
     volumes:
       - .:/app
+    image: trekimann/chat-gpt-web
     build:
       context: "."
       dockerfile: Dockerfile
+      args:
+        - PYTHON_API_IMAGE=python_api
       
   python_api:
     container_name: python_api
@@ -26,6 +29,3 @@ services:
     build:
       context: "."
       dockerfile: python_api/Dockerfile-pythonapi
-    environment:
-      - OPENAI_API_KEY
-      - DEBUG=1  # Enable debug mode
